@@ -20,16 +20,18 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'Manager',
-            'email' => 'admin@example.com',
+            'email' => 'user@example.com',
             'password' => Hash::make('password'),
             'role_id' => $adminRole->id,
             'email_verified_at' => now(),
         ]);
         
+
+ 
         User::create([
-            'name' => 'User User',
+            'name' => 'user user',
             'email' => 'user@example.com',
-            'password' => Hash::make('passworded'),
+            'password' => Hash::make('passwordi'),
             'role_id' => $userRole->id,
             'email_verified_at' => now(),
         ]);

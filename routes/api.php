@@ -4,11 +4,12 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 
 //Public Routes
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
 
 
@@ -32,7 +33,15 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('restaurant', [RestaurantController::class, 'createRestaurant']);
     Route::get('restaurant', [RestaurantController::class, 'getRestaurants']);
-    Route::get('restaurant/{id}', [RestaurantController::class, 'getRestaurant']);
-    Route::put('restaurant/{id}', [RestaurantController::class, 'updateRestaurant']);
-    Route::delete('restaurant/{id}', [RestaurantController::class, 'deleteRestaurant']);
+    Route::get('restaurant/{id}', [LocationController::class, 'getrestaurants']);
+    Route::put('restaurant/{id}', [LocationController::class, 'updaterestaurants']);
+    Route::delete('restaurant/{id}', [LocationController::class, 'deleterestaurants']);
+ 
+
+    
+    Route::post('role',  [rolecontroller::class, 'createRole']);
+    Route::get('role', [RoleController::class, 'index']);
+    Route::get('restaurant/{id}', [RoleController::class, 'getroles']);
+    Route::Put('updateRole',  [RoleController::class,'updaterole']);
+
 });
